@@ -4,3 +4,40 @@
 <h2> I love self-education </h2>
 <p> Hi my frend </p>
 <a href="youtube.com"> My link </a> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <h1>Let's play rock, paper, or scissors!</h1>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+    
+    <p id="result"></p>
+    
+    <script>
+        function playGame(playerChoice) {
+            const choices = ["rock", "paper", "scissors"];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let winner = "";
+
+            if ((playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "scissors" && computerChoice === "paper") ||
+                (playerChoice === "paper" && computerChoice === "rock")) {
+                winner = "Player";
+            } else if (playerChoice === computerChoice) {
+                winner = "Tie";
+            } else {
+                winner = "Computer";
+            }
+
+            document.getElementById("result").innerHTML = `Computer chose: ${computerChoice}. ${winner} won!`;
+        }
+    </script>
+</body>
+</html>
